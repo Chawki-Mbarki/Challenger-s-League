@@ -1,0 +1,108 @@
+.red-button {
+    background-color: #b70253;
+    color:#ffffff;
+    border-radius: 12px;
+    font-size: 30px;
+    padding: 8px 45px;
+    margin: 40px;
+  }
+  
+  .red-button:hover {
+    background-color:#ffffff;
+    color:#b70253;
+  }
+  
+  .white-button {
+    background-color:#ffffff;
+    color:#b70253;
+    border-radius: 12px;
+    font-size: 30px;
+    padding: 8px 45px;
+    margin: 40px;
+  }
+  
+  .white-button:hover {
+    background-color:#b70253;
+    color:#ffffff;
+  }
+  
+  .black-button {
+    background-color: white;
+    color: black;
+    border-radius: 12px;
+    font-size: 30px;
+    padding: 8px 45px;
+    margin: 40px;
+    border: none;
+  }
+  
+  .black-button:hover {
+    background-color:black;
+    color: #ffffff;
+  }
+  
+  .yes-button {
+    background-color: #02b70a;
+    color:#ffffff;
+    border-radius: 12px;
+    font-size: 30px;
+    padding: 8px 45px;
+    margin: 40px;
+    border: none;
+  }
+  
+  .yes-button:hover {
+    background-color:#ffffff;
+    color:#02b70a;
+  }
+  
+  .no-button {
+    background-color: #b7010d;
+    color:#ffffff;
+    border-radius: 12px;
+    font-size: 30px;
+    padding: 8px 45px;
+    margin: 40px;
+    border: none;
+  }
+  
+  .no-button:hover {
+    background-color:#ffffff;
+    color:#b7010d
+  }
+  .pick-button {
+    background-color: black;
+    color:#ffffff;
+    border-radius: 12px;
+    font-size: 30px;
+    padding: 8px 45px;
+    margin: 40px;
+    border: none;
+  }
+  
+  .pick-button:hover {
+    background-color:#ffffff;
+    color:black;
+  }
+  
+  
+  .formOne {
+    display: inline-block;
+    position: relative;
+  border: none;
+  border-radius: 12%;
+  padding: auto;
+  margin: 40px;
+  width: 40%;
+  
+  }
+  
+  .paragraph {
+  background-color: #555555;
+  border-radius: 10px;
+  font-size: 15px;
+  width: 50%;
+  margin: 6%;
+  padding: 4%;
+  color: #ffffff;
+  }
