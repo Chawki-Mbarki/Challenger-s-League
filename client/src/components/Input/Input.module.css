@@ -8,6 +8,7 @@
 label {
   margin-left: 0;
   transition: 0.3s;
+  color: white;
 }
 
 .InputContainer:hover label, .InputContainer:focus-within label {
