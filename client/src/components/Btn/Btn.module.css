@@ -1,0 +1,73 @@
+button {
+  margin: 5px;
+  border-radius: 10px;
+  font-weight: bolder;
+  height: 60px;
+  width: 250px;
+  border: 1px black solid;
+  transition: 0.3s;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.primary {
+  background-color: #B70253;
+  color: #ffffff;
+}
+.primary:hover {
+  background-color: #ffffff;
+  color: #af6385;
+}
+
+.secondary {
+  background-color: #ffffff;
+  color: #B70253;
+}
+.secondary:hover {
+  background-color: #af6385;
+  color: #ffffff;
+}
+
+.white {
+  background-color: white;
+  color: black;
+}
+.white:hover {
+  background-color: black;
+  color: #ffffff;
+}
+
+.yes, .no, .pick {
+  height: 50px;
+  width: 120px;
+}
+
+.yes {
+  background-color: #02B709;
+  color: #ffffff;
+}
+.yes:hover {
+  background-color: #ffffff;
+  color: #02B709;
+}
+
+.no {
+  background-color: #B7020D;
+  color: #ffffff;
+}
+
+.no:hover {
+  background-color: #ffffff;
+  color: #B7020D;
+}
+
+.pick {
+  background-color: #010A13;
+  color: #ffffff;
+}
+.pick:hover {
+  background-color: #ffffff;
+  color: #010A13;
+}
