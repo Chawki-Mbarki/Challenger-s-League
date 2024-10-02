@@ -1,0 +1,1 @@
+export { default as TestArea } from './TestArea/TestArea'
