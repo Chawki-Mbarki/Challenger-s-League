@@ -1,7 +1,8 @@
-const userController = require('../controllers/userController');
-const verifyToken = require('../middlewares/authMiddleware');
+const userController = require("../controllers/userController");
+const authMiddleware = require('../middleware/auth.middleware');
 
 module.exports = function (app) {
-  app.post("/api/register", userController.registerUser);
-  app.post("/api/login", userController.loginUser);
+  app.post("/register", userController.registerUser);
+  app.post("/login", userController.loginUser);
+  app.get("/user", authMiddleware, userController.getUser);
 };
