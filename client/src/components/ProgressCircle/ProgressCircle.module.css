@@ -1,0 +1,40 @@
+.progressContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  border-radius: 100%;
+  backdrop-filter: blur(15px);
+  box-shadow: 15px 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.circle {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.percentageText {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.CircularProgressbar-path {
+  background-color: black;
+}
+
+.CircularProgressbar-trail {
+  background-color: black;
+}
