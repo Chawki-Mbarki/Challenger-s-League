@@ -1,0 +1,16 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  color: #B70253;
+  font-size: 1.2rem;
+  margin: 0;
+  font-family: "Righteous", system-ui;
+  font-weight: bold;
+}
