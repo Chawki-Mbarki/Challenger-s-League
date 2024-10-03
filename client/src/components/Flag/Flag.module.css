@@ -1,0 +1,24 @@
+.flag {
+  padding: 8px 20px;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  font-weight: 700;
+  border-radius: 20px;
+  display: inline-block;
+  margin: 10px;
+}
+
+.primary {
+  background-color: white;
+  color: #dba4b2; 
+  border: 2px solid transparent;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); 
+  border-radius: 10px; 
+}
+
+.black {
+  background-color: black;
+  color: white;
+  border: 2px solid black;
+  border-radius: 100%; 
+}
