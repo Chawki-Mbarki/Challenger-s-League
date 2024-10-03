@@ -1,10 +1,11 @@
 import React from "react";
 import { Btn, Input, Paragraph } from "../../components";
+import { Navbar } from "../../Containers";
 import Styles from './TestArea.module.css'
 
 const TestArea = () => {
   return (
-    <div className="flex column" style={{gap: 50 + "px", alignItems: 'center'}}>
+    <div className="flex column" style={{ gap: 50 + "px", alignItems: 'center' }}>
       <div className="wrapper">
         <div className="btns">
           <h2>Buttons</h2>
@@ -17,13 +18,16 @@ const TestArea = () => {
         </div>
         <div className="Inputs">
           <h2>Inputs</h2>
-          <Input type={"text"} ID={"username"} placeholder={"Enter your username"}  label={"Username:"} />
-          <Input type={"password"} ID={"username"} placeholder={"Enter your Password"}  label={"Password:"} />
-          <Input type={"email"} ID={"username"} placeholder={"Enter your Email"}  label={"Email:"} />
+          <Input type={"text"} ID={"username"} placeholder={"Enter your username"} label={"Username:"} />
+          <Input type={"password"} ID={"username"} placeholder={"Enter your Password"} label={"Password:"} />
+          <Input type={"email"} ID={"username"} placeholder={"Enter your Email"} label={"Email:"} />
         </div>
         <div className="Paragraph">
           <h2>Paragraph</h2>
           <Paragraph text={'loremdsloremdsloremdsloremdsloremdsloremdsloremdsloremdsloremdsloremdsloremdsloremdsloremds'} />
+        </div>
+        <div >
+        <Navbar />
         </div>
       </div>
     </div>
