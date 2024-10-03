@@ -45,6 +45,9 @@ const TestArea = () => {
           <h2>Waiting Animation</h2>
           <Waiting />
         </div>
+        <div>
+          test
+        </div>
 
       </div>
     </div>
