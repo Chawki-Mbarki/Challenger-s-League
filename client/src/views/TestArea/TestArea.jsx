@@ -1,5 +1,5 @@
 import React from "react";
-import { ProgressCircle, Btn, Input, Paragraph } from "../../components";
+import { ProgressCircle, Btn, Input, Paragraph, Flag } from "../../components";
 import { Navbar } from "../../Containers";
 import Styles from './TestArea.module.css'
 
@@ -33,6 +33,13 @@ const TestArea = () => {
         <h2>Progress Circle</h2>
         <div >
           <ProgressCircle progress={70} text="Progress" />
+        </div>
+        <h2>Flags</h2>
+        <div>
+          <Flag text="Primary Flag" type="primary" />
+          <Flag text="vs" type="black" />
+          <Flag text="Ahmed" type="primary" />
+          <Flag text="test" type="black" />
         </div>
       </div>
     </div>
