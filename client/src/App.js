@@ -1,10 +1,9 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import { ProtectedRoute } from './components'
-import { TestArea, Home } from './views'
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { ProtectedRoute } from "./components";
+import { TestArea, Home } from "./views";
 
-import './app.css'
-
+import "./app.css";
 
 function App() {
   return (
@@ -17,7 +16,7 @@ function App() {
         //? , Protected Route example: <ProtectedRoute path="/dashboard" element={Dashboard} />
       */}
     </Routes>
-  )
+  );
 }
 
-export default App
+export default App;
