@@ -36,13 +36,13 @@ const TestArea = () => {
           />
           <Input
             type={"password"}
-            ID={"username"}
+            ID={"Password"}
             placeholder={"Enter your Password"}
             label={"Password:"}
           />
           <Input
             type={"email"}
-            ID={"username"}
+            ID={"Email"}
             placeholder={"Enter your Email"}
             label={"Email:"}
           />

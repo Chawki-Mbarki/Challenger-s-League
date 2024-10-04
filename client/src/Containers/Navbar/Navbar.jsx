@@ -1,8 +1,21 @@
 import React from "react";
-import Link from "../../components/Link/Link";
+import { useNavigate } from "react-router-dom";
+
+import { Link } from "../../components";
+
 import Styles from "./Navbar.module.css";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    try {
+      localStorage.removeItem("token");
+      navigate("/");
+    } catch (error) {
+      console.error("Logout failed", error);
+    }
+  };
+
   return (
     <nav className={Styles.navbar}>
       <div className={`${Styles.container} container flex`}>
@@ -13,7 +26,7 @@ const Navbar = () => {
           <Link path={"/Dashboard"} text={"Dashboard"} />
           <Link path={"/History"} text={"History"} />
           <Link path={"/TestArea"} text={"TeastArea"} />
-          <Link path={"/Logout"} text={"Logout"} />
+          <Link path={"/"} text={"Logout"} OnClick={handleLogout} />
         </div>
       </div>
     </nav>

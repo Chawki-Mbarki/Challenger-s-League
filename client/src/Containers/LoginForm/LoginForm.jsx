@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { Input, Btn, Flag } from "../../components";
 import Styles from "./LoginForm.module.css";
 import api from "../../config/axios";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -23,13 +25,12 @@ const LoginForm = () => {
       setError("Please enter a valid email address.");
       return;
     }
-
     try {
       const response = await api.post("/login", { email, password });
-      localStorage.setItem("token", response.data.token); // Store token in local storage
-      console.log("Login successful:", response.data);
+      localStorage.setItem("token", response.data.token);
+      navigate("/Dashboard");
     } catch (error) {
-      setError(error.response?.data || "Login failed. Please try again.");
+      setError(error.response?.data || error.message || "Login failed. Please try again.");
     }
   };
 

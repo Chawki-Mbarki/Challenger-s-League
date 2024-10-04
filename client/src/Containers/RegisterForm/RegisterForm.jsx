@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Input, Btn, Flag } from "../../components";
 import styles from "./RegisterForm.module.css";
 import api from "../../config/axios";
+import { useNavigate } from "react-router-dom";
 
 const RegistrationForm = () => {
   const [username, setUsername] = useState("");
@@ -9,6 +10,7 @@ const RegistrationForm = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const validatePassword = (password) => {
     const hasUpperCase = /[A-Z]/.test(password);
@@ -61,11 +63,9 @@ const RegistrationForm = () => {
         password,
       });
       localStorage.setItem("token", response.data.token);
-      console.log("Registration successful:", response.data);
+      navigate("/Dashboard");
     } catch (error) {
-      setError(
-        error.response?.data || "Registration failed. Please try again."
-      );
+      setError(error.response?.data || error.message || "Register failed. Please try again.");
     }
   };
 
