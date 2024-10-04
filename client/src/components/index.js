@@ -7,3 +7,4 @@ export { default as Link } from './Link/Link'
 export { default as ProgressCircle } from './ProgressCircle/ProgressCircle'
 export { default as Flag } from './Flag/Flag'
 export { default as Waiting } from './Waiting/Waiting'
+export { default as ChampionIcon } from "./ChampionIcon/ChampionIcon";
