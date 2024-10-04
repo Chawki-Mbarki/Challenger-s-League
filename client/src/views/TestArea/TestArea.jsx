@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ProgressCircle,
   Btn,
@@ -6,16 +6,23 @@ import {
   Paragraph,
   Flag,
   Waiting,
+  ChampionIcon
 } from "../../components";
 import { Navbar } from "../../Containers";
 import Styles from "./TestArea.module.css";
+import ChampionDefault from "../../images/ChampionDefault.png";
+import bg from "../../images/bg.jpeg";
+
 
 const TestArea = () => {
+  const [selectedIcon, setSelectedIcon] = useState(null);
+
+  const handleSelectIcon = (imageURL) => {
+    setSelectedIcon(imageURL);
+  };
+
   return (
-    <div
-      className="flex column"
-      style={{ gap: 50 + "px", alignItems: "center" }}
-    >
+    <div className="flex column" style={{ gap: "50px", alignItems: "center" }}>
       <div className={`${Styles.wrapper} flex column center`}>
         <div className="btns container">
           <h2>Buttons</h2>
@@ -36,13 +43,13 @@ const TestArea = () => {
           />
           <Input
             type={"password"}
-            ID={"username"}
+            ID={"password"}
             placeholder={"Enter your Password"}
             label={"Password:"}
           />
           <Input
             type={"email"}
-            ID={"username"}
+            ID={"email"}
             placeholder={"Enter your Email"}
             label={"Email:"}
           />
@@ -61,7 +68,7 @@ const TestArea = () => {
         </div>
         <div className="container">
           <h2>Progress Circle</h2>
-          <div className="flex center" style={{ gap: 25 }}>
+          <div className="flex center" style={{ gap: "25px" }}>
             <ProgressCircle progress={10} text="TEST" />
             <ProgressCircle progress={25} text="Win rate" />
             <ProgressCircle progress={50} text="Champions" />
@@ -78,6 +85,21 @@ const TestArea = () => {
         <div className="container">
           <h2>Waiting Animation</h2>
           <Waiting />
+        </div>
+        <div className="container" >
+          <h2>Champion Icon</h2>
+          <div className="flex " style={{ gap: "20px" }}>
+            <ChampionIcon
+              imageURL={ChampionDefault}
+              isSelected={selectedIcon === ChampionDefault}
+              onSelect={() => handleSelectIcon(ChampionDefault)}
+            />
+            <ChampionIcon
+              imageURL={bg}
+              isSelected={selectedIcon === bg}
+              onSelect={() => handleSelectIcon(bg)}
+            />
+          </div>
         </div>
       </div>
     </div>
