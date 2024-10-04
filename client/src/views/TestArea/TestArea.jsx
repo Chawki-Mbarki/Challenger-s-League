@@ -7,15 +7,16 @@ import {
   Flag,
   Waiting,
 } from "../../components";
-import { Navbar } from "../../Containers";
+import { Navbar } from "../../containers";
 import Styles from "./TestArea.module.css";
 
 const TestArea = () => {
   return (
     <div
       className="flex column"
-      style={{ gap: 50 + "px", alignItems: "center" }}
+      style={{ gap: "50px", alignItems: "center" }}
     >
+      <Navbar />
       <div className={`${Styles.wrapper} flex column center`}>
         <div className="btns container">
           <h2>Buttons</h2>
@@ -54,10 +55,6 @@ const TestArea = () => {
               "loremdsloremdsloremdsloremdsloremdsloremdsloremdsloremdsloremdsloremdsloremdsloremdsloremds"
             }
           />
-        </div>
-        <div className="container">
-          <h2>Navigation Bar</h2>
-          <Navbar />
         </div>
         <div className="container">
           <h2>Progress Circle</h2>
