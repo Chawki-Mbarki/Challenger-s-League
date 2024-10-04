@@ -1,24 +1,18 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import Styles from './Link.module.css';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import Styles from "./Link.module.css";
 
-const Link = () => {
+const Link = ({ path, text }) => {
   return (
-    <div className={Styles.links}>
-      <NavLink
-        to="/history"
-        className={({ isActive }) => isActive ? Styles.activeLink : Styles.link}
-      >
-        History
-      </NavLink>
-      <NavLink
-        to="/dashboard"
-        className={({ isActive }) => isActive ? Styles.activeLink : Styles.link}
-      >
-        Dashboard
-      </NavLink>
-
-    </div>
+    <NavLink
+      to={path}
+      exact
+      className={({ isActive }) =>
+        `${Styles.link} ${isActive ? Styles.activeLink : ""}`
+      }
+    >
+      {text}
+    </NavLink>
   );
 };
 

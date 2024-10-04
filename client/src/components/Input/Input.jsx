@@ -1,13 +1,23 @@
-import React from 'react';
-import Styles from './Input.module.css';
+import React from "react";
+import Styles from "./Input.module.css";
 
 const Input = ({ type, ID, label, placeholder, value, onChange }) => {
   return (
-    <div className={`${Styles.InputContainer} flex column`}>
+    <div
+      className={`${Styles.InputContainer} flex ${
+        type === "radio" || type === "checkbox" ? "" : "column"
+      }`}
+    >
       <label htmlFor={ID}>{label}</label>
-      <input type={type} id={ID} placeholder={placeholder} onChange={onChange} value={value} />
+      <input
+        type={type}
+        id={ID}
+        placeholder={placeholder}
+        onChange={onChange}
+        value={value}
+      />
     </div>
   );
-}
+};
 
 export default Input;
