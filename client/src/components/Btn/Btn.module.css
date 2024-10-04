@@ -13,7 +13,7 @@ button:hover {
 }
 
 .primary {
-  background-color: #B70253;
+  background-color: #b70253;
   color: #ffffff;
 }
 .primary:hover {
@@ -23,7 +23,7 @@ button:hover {
 
 .secondary {
   background-color: #ffffff;
-  color: #B70253;
+  color: #b70253;
 }
 .secondary:hover {
   background-color: #af6385;
@@ -39,35 +39,37 @@ button:hover {
   color: #ffffff;
 }
 
-.yes, .no, .pick {
+.yes,
+.no,
+.pick {
   height: 50px;
   width: 120px;
 }
 
 .yes {
-  background-color: #02B709;
+  background-color: #02b709;
   color: #ffffff;
 }
 .yes:hover {
   background-color: #ffffff;
-  color: #02B709;
+  color: #02b709;
 }
 
 .no {
-  background-color: #B7020D;
+  background-color: #b7020d;
   color: #ffffff;
 }
 
 .no:hover {
   background-color: #ffffff;
-  color: #B7020D;
+  color: #b7020d;
 }
 
 .pick {
-  background-color: #010A13;
+  background-color: #010a13;
   color: #ffffff;
 }
 .pick:hover {
   background-color: #ffffff;
-  color: #010A13;
+  color: #010a13;
 }

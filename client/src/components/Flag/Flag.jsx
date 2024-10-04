@@ -1,12 +1,8 @@
-import React from 'react';
-import styles from './Flag.module.css'; 
+import React from "react";
+import Styles from "./Flag.module.css";
 
 const Flag = ({ text, type }) => {
-  return (
-    <div className={`${styles.flag} ${type === 'primary' ? styles.primary : styles.black}`}>
-      {text}
-    </div>
-  );
+  return <p className={`${Styles.flag} ${Styles[type]}`}>{text}</p>;
 };
 
 export default Flag;

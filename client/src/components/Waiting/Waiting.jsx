@@ -1,12 +1,12 @@
-import React from 'react';
-import styles from './Waiting.module.css';
+import React from "react";
+import Styles from "./Waiting.module.css";
 
 const WaitingAnimation = () => {
   return (
-    <div className={styles.waitingContainer}>
-      <div className={`${styles.circle} ${styles.small}`}></div>
-      <div className={`${styles.circle} ${styles.medium}`}></div>
-      <div className={`${styles.circle} ${styles.big}`}></div>
+    <div className={Styles.waitingContainer}>
+      <div className={`${Styles.circle}`}></div>
+      <div className={`${Styles.circle}`}></div>
+      <div className={`${Styles.circle}`}></div>
     </div>
   );
 };
