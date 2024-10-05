@@ -136,6 +136,8 @@ const TestArea = () => {
         </div>
         <div className="container">
           <h2>Player Card</h2>
+          <h1>Click on Add Icon to see the other Card : </h1><br />
+
           <PlayerCard
             isFriend={isFriend}
             onChallenge={handleChallenge}
