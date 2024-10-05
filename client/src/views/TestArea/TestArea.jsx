@@ -6,13 +6,13 @@ import {
   Paragraph,
   Flag,
   Waiting,
-  ChampionIcon
+  ChampionIcon,
+  MiniIcon
 } from "../../components";
 import { Navbar } from "../../Containers";
 import Styles from "./TestArea.module.css";
 import ChampionDefault from "../../images/ChampionDefault.png";
 import bg from "../../images/bg.jpeg";
-
 
 const TestArea = () => {
   const [selectedIcon, setSelectedIcon] = useState(null);
@@ -58,7 +58,7 @@ const TestArea = () => {
           <h2>Paragraph</h2>
           <Paragraph
             text={
-              "loremdsloremdsloremdsloremdsloremdsloremdsloremdsloremdsloremdsloremdsloremdsloremdsloremds"
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula nisl nec efficitur dignissim."
             }
           />
         </div>
@@ -86,9 +86,9 @@ const TestArea = () => {
           <h2>Waiting Animation</h2>
           <Waiting />
         </div>
-        <div className="container" >
+        <div className="container">
           <h2>Champion Icon</h2>
-          <div className="flex " style={{ gap: "20px" }}>
+          <div className="flex" style={{ gap: "20px" }}>
             <ChampionIcon
               imageURL={ChampionDefault}
               isSelected={selectedIcon === ChampionDefault}
@@ -99,6 +99,18 @@ const TestArea = () => {
               isSelected={selectedIcon === bg}
               onSelect={() => handleSelectIcon(bg)}
             />
+          </div>
+        </div>
+        <div className="container">
+          <h2>Mini Icons</h2>
+          <div className="flex" style={{ gap: "20px" }}>
+            <MiniIcon type="challenge" onClick={() => alert("Challenge icon clicked!")}/>
+            <MiniIcon type="add" onClick={() => alert("Add icon clicked!")} />
+            <MiniIcon type="block" onClick={() => alert("Block icon clicked!")} />
+            <MiniIcon type="message" onClick={() => alert("Message icon clicked!")} />
+            <MiniIcon type="unfriend" onClick={() => alert("Unfriend icon clicked!")} />
+            <MiniIcon type="accept" onClick={() => alert("Accept icon clicked!")} />
+            <MiniIcon type="refuse" onClick={() => alert("Refuse icon clicked!")} />
           </div>
         </div>
       </div>
