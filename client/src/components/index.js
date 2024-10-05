@@ -8,3 +8,6 @@ export { default as ProgressCircle } from './ProgressCircle/ProgressCircle'
 export { default as Flag } from './Flag/Flag'
 export { default as Waiting } from './Waiting/Waiting'
 export { default as ChampionIcon } from "./ChampionIcon/ChampionIcon";
+export { default as MiniIcon } from "./MiniIcon/MiniIcon";
+export { default as PlayerCard } from "./PlayerCard/PlayerCard";
+export { default as MatchCard } from "./MatchCard/MatchCard";

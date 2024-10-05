@@ -7,6 +7,9 @@ import {
   Flag,
   Waiting,
   ChampionIcon,
+  MiniIcon,
+  MatchCard,
+  PlayerCard
 } from "../../components";
 import { Navbar } from "../../containers";
 import Styles from "./TestArea.module.css";
@@ -15,9 +18,40 @@ import bg from "../../images/bg.jpeg";
 
 const TestArea = () => {
   const [selectedIcon, setSelectedIcon] = useState(null);
+  const [isFriend, setIsFriend] = useState(false);
 
   const handleSelectIcon = (imageURL) => {
     setSelectedIcon(imageURL);
+  };
+
+  const handleChallengeResponse = (response) => {
+    if (response === "accept") {
+      alert("Accepted!");
+    } else if (response === "refuse") {
+      alert("Refused!");
+    }
+  };
+
+  const handleAdd = () => {
+    setIsFriend(true);
+    alert("Added as a friend!");
+  };
+
+  const handleBlock = () => {
+    alert("Blocked!");
+  };
+
+  const handleUnfriend = () => {
+    setIsFriend(false);
+    alert("Unfriended!");
+  };
+
+  const handleChallenge = () => {
+    alert("Challenged!");
+  };
+
+  const handleMessage = () => {
+    alert("Message!");
   };
 
   return (
@@ -58,7 +92,7 @@ const TestArea = () => {
           <h2>Paragraph</h2>
           <Paragraph
             text={
-              "loremdsloremdsloremdsloremdsloremdsloremdsloremdsloremdsloremdsloremdsloremdsloremdsloremds"
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula nisl nec efficitur dignissim."
             }
           />
         </div>
@@ -84,7 +118,7 @@ const TestArea = () => {
         </div>
         <div className="container">
           <h2>Champion Icon</h2>
-          <div className="flex " style={{ gap: "20px" }}>
+          <div className="flex" style={{ gap: "20px" }}>
             <ChampionIcon
               imageURL={ChampionDefault}
               isSelected={selectedIcon === ChampionDefault}
@@ -96,6 +130,26 @@ const TestArea = () => {
               onSelect={() => handleSelectIcon(bg)}
             />
           </div>
+        </div>
+        <div className="container">
+          <h2>Player Card</h2>
+          <h1>Click on Add Icon to see the other Card : </h1><br />
+
+          <PlayerCard
+            isFriend={isFriend}
+            onChallenge={handleChallenge}
+            onAdd={handleAdd}
+            onBlock={handleBlock}
+            onMessage={handleMessage}
+            onUnfriend={handleUnfriend}
+          />
+        </div>
+        <div className="container">
+          <h2>Match Mini Card</h2>
+          <MatchCard
+            onAccept={() => handleChallengeResponse("accept")}
+            onRefuse={() => handleChallengeResponse("refuse")}
+          />
         </div>
       </div>
     </div>
