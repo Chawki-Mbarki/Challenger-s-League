@@ -1,0 +1,16 @@
+.card {
+  width: 500px;
+    display: flex;
+    gap: 100px;
+    align-items: center;
+    background-color: #29282850;
+    color: white;
+    border: 1px solid black;
+    padding: 20px;
+  }
+
+  .icons{
+    display: flex;
+    gap: 30px;
+  }
+  
