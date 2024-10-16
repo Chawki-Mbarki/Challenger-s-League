@@ -3,7 +3,7 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import Styles from "./ProgressCircle.module.css";
 
-const ProgressCircle = ({ progress, text }) => {
+const ProgressCircle = ({ progress, progressText, text }) => {
   const getColor = (percent) => {
     if (percent <= 50) {
       const red = 255;
@@ -21,16 +21,17 @@ const ProgressCircle = ({ progress, text }) => {
       <div className={Styles.circle}>
         <CircularProgressbar
           value={progress}
-          text={text}
+          text=""
           styles={buildStyles({
-            textColor: "#333",
+            textColor: "#ffffff",
             textSize: "12px",
             pathColor: getColor(progress),
             trailColor: "rgba(255, 255, 255, 0.3)",
             strokeWidth: 12,
           })}
         />
-        <div className={Styles.percentageText}>{`${progress}%`}</div>
+        <div className={Styles.textStroke}>{text}</div>
+        <div className={Styles.percentageText}>{`${progressText}`}</div>
       </div>
     </div>
   );

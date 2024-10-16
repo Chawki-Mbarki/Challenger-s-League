@@ -9,9 +9,9 @@ import {
   ChampionIcon,
   MiniIcon,
   MatchCard,
-  PlayerCard,
+  PlayerCard
 } from "../../components";
-import { Navbar } from "../../Containers";
+import { Navbar } from "../../containers";
 import Styles from "./TestArea.module.css";
 import ChampionDefault from "../../images/ChampionDefault.png";
 import bg from "../../images/bg.jpeg";
@@ -56,6 +56,7 @@ const TestArea = () => {
 
   return (
     <div className="flex column" style={{ gap: "50px", alignItems: "center" }}>
+      <Navbar />
       <div className={`${Styles.wrapper} flex column center`}>
         <div className="btns container">
           <h2>Buttons</h2>
@@ -76,13 +77,13 @@ const TestArea = () => {
           />
           <Input
             type={"password"}
-            ID={"password"}
+            ID={"Password"}
             placeholder={"Enter your Password"}
             label={"Password:"}
           />
           <Input
             type={"email"}
-            ID={"email"}
+            ID={"Email"}
             placeholder={"Enter your Email"}
             label={"Email:"}
           />
@@ -96,17 +97,13 @@ const TestArea = () => {
           />
         </div>
         <div className="container">
-          <h2>Navigation Bar</h2>
-          <Navbar />
-        </div>
-        <div className="container">
           <h2>Progress Circle</h2>
           <div className="flex center" style={{ gap: "25px" }}>
-            <ProgressCircle progress={10} text="TEST" />
-            <ProgressCircle progress={25} text="Win rate" />
-            <ProgressCircle progress={50} text="Champions" />
-            <ProgressCircle progress={75} text="XP" />
-            <ProgressCircle progress={95} text="TEST" />
+            <ProgressCircle progress={10} text="TEST" progressText={10} />
+            <ProgressCircle progress={25} text="Win rate" progressText={"25%"} />
+            <ProgressCircle progress={50} text="Champions" progressText={"50%"} />
+            <ProgressCircle progress={75} text="XP" progressText={"75"} />
+            <ProgressCircle progress={95} text="TEST" progressText={"95%"} />
           </div>
         </div>
         <div className="container">
@@ -132,6 +129,19 @@ const TestArea = () => {
               isSelected={selectedIcon === bg}
               onSelect={() => handleSelectIcon(bg)}
             />
+
+          </div>
+        </div>
+        <div className="container">
+          <h2>Mini Icons</h2>
+          <div className="flex" style={{ gap: "20px" }}>
+            <MiniIcon type="challenge" Clicked={() => alert("Challenge icon clicked!")}/>
+            <MiniIcon type="add" Clicked={() => alert("Add icon clicked!")} />
+            <MiniIcon type="block" Clicked={() => alert("Block icon clicked!")} />
+            <MiniIcon type="message" Clicked={() => alert("Message icon clicked!")} />
+            <MiniIcon type="unfriend" Clicked={() => alert("Unfriend icon clicked!")} />
+            <MiniIcon type="accept" Clicked={() => alert("Accept icon clicked!")} />
+            <MiniIcon type="refuse" Clicked={() => alert("Refuse icon clicked!")} />
           </div>
         </div>
         <div className="container">
@@ -139,6 +149,7 @@ const TestArea = () => {
           <h1>Click on Add Icon to see the other Card : </h1><br />
 
           <PlayerCard
+            text={"Player Card"}
             isFriend={isFriend}
             onChallenge={handleChallenge}
             onAdd={handleAdd}
@@ -150,6 +161,7 @@ const TestArea = () => {
         <div className="container">
           <h2>Match Mini Card</h2>
           <MatchCard
+            text={"Mini Card"}
             onAccept={() => handleChallengeResponse("accept")}
             onRefuse={() => handleChallengeResponse("refuse")}
           />

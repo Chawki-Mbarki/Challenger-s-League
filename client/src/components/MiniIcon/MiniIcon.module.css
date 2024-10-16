@@ -1,9 +1,12 @@
+.miniIconContainer {
+  max-height: 40px;
+}
+
 .miniIconContainer > img {
   cursor: pointer;
   transition: 0.2s;
   height: 40px;
   width: 40px;
-  overflow: visible;
 }
 
 .miniIconContainer > img:hover {

@@ -1,12 +1,15 @@
 const mongoose = require('mongoose');
+const championSchema = require('./champion.model');
 
 const matchSchema = new mongoose.Schema({
-  player1: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  player2: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  champion1Id: { type: Number, required: true },
-  champion2Id: { type: Number, required: true },
-  result: { type: String, enum: ['Player1', 'Player2', 'Draw'], required: true },
+  owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  role: { type: String, enum: ['challenger', 'opponent'], required: true },
+  challenger: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  challengerChamp: { type: championSchema, default: null },
+  opponent: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  opponentChamp: { type: championSchema, default: null },
+  result: { type: String, enum: ['won', 'lost'], required: true },
   matchDate: { type: Date, default: Date.now }
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model('Match', matchSchema);

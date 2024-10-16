@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Input, Btn, Flag } from "../../components";
 import Styles from "./LoginForm.module.css";
-import api from "../../config/axios";
+import { loginUser } from "../../api/userApi";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -23,13 +25,20 @@ const LoginForm = () => {
       setError("Please enter a valid email address.");
       return;
     }
-
     try {
-      const response = await api.post("/login", { email, password });
-      localStorage.setItem("token", response.data.token); // Store token in local storage
-      console.log("Login successful:", response.data);
+      const response = await loginUser({ email, password });
+      if (response?.token) {
+        localStorage.setItem("token", response.token);
+        navigate("/Dashboard");
+      } else {
+        setError("Login failed. No token received.");
+      }
     } catch (error) {
-      setError(error.response?.data || "Login failed. Please try again.");
+      setError(
+        error.response?.data?.error ||
+          error.message ||
+          "Login failed. Please try again."
+      );
     }
   };
 
@@ -58,7 +67,7 @@ const LoginForm = () => {
           text="Sign In"
           onClick={handleLogin}
         />
-        {error && <Flag type={"error"} text={error} />}
+        {error && <Flag type="error" text={error} />}
       </form>
     </div>
   );

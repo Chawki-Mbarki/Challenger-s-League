@@ -2,13 +2,13 @@ import React from "react";
 import MiniIcon from "../MiniIcon/MiniIcon";
 import Styles from "./MatchCard.module.css";
 
-const MatchMiniCard = ({ onAccept, onRefuse }) => {
+const MatchMiniCard = ({ onAccept, onRefuse, text }) => {
   return (
     <div className={Styles.card}>
-      <h1>Challenge Mini Card</h1>
+      <h1>{text}</h1>
       <div className={Styles.icons}>
-        <MiniIcon type="accept" onClick={onAccept} />
-        <MiniIcon type="refuse" onClick={onRefuse} />
+        <MiniIcon type="accept" Clicked={onAccept} />
+        <MiniIcon type="refuse" Clicked={onRefuse} />
       </div>
 
     </div>

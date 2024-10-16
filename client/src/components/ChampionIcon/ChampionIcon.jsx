@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Styles from "./ChampionIcon.module.css";
+import defaultIcon from "../../images/ChampionDefault.png";
 
-const ChampionIcon = ({ imageURL, isSelected, onSelect }) => {
-  const [icon, setIcon] = useState("https://via.placeholder.com/100");
+const ChampionIcon = ({ imageURL, isSelected, onSelect, championName }) => {
+  const [icon, setIcon] = useState(defaultIcon);
 
   useEffect(() => {
     if (imageURL) {
@@ -15,7 +16,7 @@ const ChampionIcon = ({ imageURL, isSelected, onSelect }) => {
       className={`${Styles.iconContainer} ${isSelected ? Styles.selected : ""}`} 
       onClick={onSelect} 
     >
-      <img src={icon} alt="Champion Icon" />
+      <img src={icon} alt={championName ? `${championName} Icon` : "Champion Icon"} />
     </div>
   );
 };

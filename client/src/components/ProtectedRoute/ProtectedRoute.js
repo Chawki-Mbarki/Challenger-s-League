@@ -1,15 +1,22 @@
-import { Route, Navigate } from "react-router-dom";
+import React from "react";
+import { Navigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
-const ProtectedRoute = ({ component: Component, ...rest }) => {
+const ProtectedRoute = ({ element: Element }) => {
   const token = localStorage.getItem("token");
-  return (
-    <Route
-      {...rest}
-      render={(props) =>
-        token ? <Component {...props} /> : <Navigate to="/login" />
+
+  if (token) {
+    try {
+      const decoded = jwtDecode(token);
+      const currentTime = Date.now() / 1000;
+      if (decoded.exp > currentTime) {
+        return <Element />;
       }
-    />
-  );
+    } catch (error) {
+      localStorage.removeItem("token");
+    }
+  }
+  return <Navigate to="/" />;
 };
 
 export default ProtectedRoute;
