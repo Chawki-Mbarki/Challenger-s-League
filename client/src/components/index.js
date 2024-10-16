@@ -11,3 +11,4 @@ export { default as ChampionIcon } from "./ChampionIcon/ChampionIcon";
 export { default as MiniIcon } from "./MiniIcon/MiniIcon";
 export { default as PlayerCard } from "./PlayerCard/PlayerCard";
 export { default as MatchCard } from "./MatchCard/MatchCard";
+export { default as Champions } from "./Champions/Champions";
