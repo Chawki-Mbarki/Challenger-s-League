@@ -1,32 +1,44 @@
-const axios = require('axios');
 const Match = require('../models/match.model');
-
-const RIOT_API_URL = 'https://na1.api.riotgames.com/lol/static-data/v3/champions';
-const RIOT_API_KEY = process.env.RIOT_API_KEY;
-
-let championCache = {};
-
-async function getChampion(championId) {
-  if (championCache[championId]) {
-    return championCache[championId];
-  }
-  const response = await axios.get(`${RIOT_API_URL}/${championId}`, { params: { api_key: RIOT_API_KEY } });
-  const champion = response.data;
-  championCache[championId] = champion;
-  return champion;
-}
+const Challenge = require('../models/challenge.model');
 
 module.exports.createMatch = async (req, res) => {
-  const { player1Id, player2Id, champion1Id, champion2Id, result } = req.body;
+  const { owner, role, challengeId, result } = req.body;
+
   try {
-    const match = await Match.create({ player1: player1Id, player2: player2Id, champion1Id, champion2Id, result });
-    const [champion1, champion2] = await Promise.all([
-      getChampion(champion1Id),
-      getChampion(champion2Id)
-    ]);
-    res.status(200).json({ match, champion1, champion2 });
+    if (!owner || !role || !challengeId || !result) {
+      return res.status(400).json({ error: 'Missing required fields' });
+    }
+    const challenge = await Challenge.findById(challengeId).select('challenger challengerChamp opponent opponentChamp createdAt');
+    if (!challenge) {
+      return res.status(404).json({ error: 'Challenge not found' });
+    }
+    const { challenger, challengerChamp, opponent, opponentChamp, createdAt } = challenge;
+    const match = await Match.create({
+      owner,
+      role,
+      challenger,
+      challengerChamp,
+      opponent,
+      opponentChamp,
+      result,
+      matchDate: createdAt,
+    });
+    res.status(201).json({ match });
   } catch (error) {
+    console.error("Error creating match:", error);
     res.status(500).json({ error: 'Failed to create match' });
   }
 };
 
+
+module.exports.getMatchHistory = async (req, res) => {
+  try {
+    const matches = await Match.find({ owner: req.user.id });
+    const totalMatches = matches.length;
+    const wins = matches.filter(match => match.result === 'won').length;
+    const winRate = totalMatches > 0 ? ((wins / totalMatches) * 100).toFixed(2) : 0;
+    res.status(200).json({ matches, winRate });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch match history' });
+  }
+};
