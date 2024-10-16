@@ -1,3 +1,9 @@
 export { default as LoginForm } from "./LoginForm/LoginForm";
 export { default as RegisterForm } from "./RegisterForm/RegisterForm";
 export { default as Navbar } from "./Navbar/Navbar";
+export { default as Stats } from "./Stats/Stats";
+export { default as MainBoard } from "./MainBoard/MainBoard";
+export { default as ChallengeWidget } from "./ChallengeWidget/ChallengeWidget";
+export { default as PlayersList } from "./MainBoard/MainBoardContent/PlayersList/PlayersList";
+export { default as FriendsList } from "./MainBoard/MainBoardContent/FriendsList/FriendsList";
+export { default as ChallengesList } from "./MainBoard/MainBoardContent/ChallengesList/ChallengesList";

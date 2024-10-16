@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Btn, Paragraph } from "../../components";
-import { LoginForm, RegisterForm } from "../../Containers";
+import { LoginForm, RegisterForm } from "../../containers";
 import Styles from "./Home.module.css";
 
 const Home = () => {

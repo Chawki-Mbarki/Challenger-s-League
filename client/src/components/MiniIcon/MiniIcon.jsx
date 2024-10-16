@@ -18,13 +18,10 @@ const icons = {
   message: messageIcon,
 };
 
-const MiniIcon = ({ type, onClick }) => {
+const MiniIcon = ({ type, Clicked }) => {
   return (
-    <div className={Styles.miniIconContainer} onClick={onClick}> 
-      <img
-        src={icons[type]}
-        alt={"mini-icon"}
-      />
+    <div className={Styles.miniIconContainer} onClick={Clicked}> 
+      <img src={icons[type]} alt={`${type} icon`} />
     </div>
   );
 };
