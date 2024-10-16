@@ -1,0 +1,88 @@
+
+.container {
+  height: 100vh; 
+  background-image: url('../../images/bgh.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.body {
+  height: 100vh; 
+  overflow: hidden; 
+}
+
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleContainer {
+  margin: 30px 5px;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 20px;
+  border-radius: 8px;
+  background-color: rgba(68, 3, 20, 0.758);
+  color: white;
+}
+
+.error {
+  margin: 30px 5px;
+  border: 1px solid rgb(255, 255, 255);
+  padding: 20px;
+  display: inline-block;
+  border-radius: 8px;
+  background-color: rgba(68, 3, 20, 0.758);
+  color: white;
+}
+
+.historyTableContainer {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.historyTable {
+  border-collapse: collapse;
+  color: white;
+  width: 100%;
+}
+
+.historyTable th,
+.historyTable td {
+  padding: 10px;
+  border: 2px solid rgb(253, 250, 251);
+}
+
+.historyTable th {
+  background-color: rgba(40, 40, 40, 0.789);
+  position: relative;
+}
+
+.historyTable th img {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.defaultIcon {
+  background-image: url('../../images/ChampionDefault.png');
+  background-size: cover;
+  background-position: center;
+  width: 100px; 
+  height: 100px; 
+}
+
+
+.win {
+  background-color: rgba(0, 255, 0, 0.2); 
+}
+
+.loss {
+  background-color: rgba(255, 0, 0, 0.2); 
+}
+
+.championIcon {
+  width: 100px; 
+  height: 100px; 
+  object-fit: cover; 
+}
+
