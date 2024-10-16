@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Input, Btn, Flag } from "../../components";
 import styles from "./RegisterForm.module.css";
-import api from "../../config/axios";
+import { registerUser } from "../../api/userApi";
 import { useNavigate } from "react-router-dom";
 
 const RegistrationForm = () => {
@@ -47,7 +47,7 @@ const RegistrationForm = () => {
     }
     if (!validatePassword(password)) {
       setError(
-        "Password must contain at least one uppercase letter one lowercase letter, one number, one special character, and be at least 8 characters long."
+        "Password must contain at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long."
       );
       return;
     }
@@ -55,19 +55,22 @@ const RegistrationForm = () => {
       setError("Passwords do not match.");
       return;
     }
-
+  
     try {
-      const response = await api.post("/register", {
-        username,
-        email,
-        password,
-      });
-      localStorage.setItem("token", response.data.token);
-      navigate("/Dashboard");
+      const response = await registerUser({ username, email, password });
+      console.log(response);
+      if (response?.token) {
+        localStorage.setItem("token", response.token);
+        navigate("/Dashboard");
+      } else {
+        setError("Registration failed. No token received.");
+      }
     } catch (error) {
-      setError(error.response?.data || error.message || "Register failed. Please try again.");
+      setError(
+        error.response?.data?.error || error.message || "Register failed. Please try again."
+      );
     }
-  };
+  };  
 
   return (
     <div className={styles.formContainer}>
@@ -110,7 +113,7 @@ const RegistrationForm = () => {
           text="Sign Up"
           onClick={handleRegister}
         />
-        {error && <Flag type={"error"} text={error} />}
+        {error && <Flag type="error" text={error} />}
       </form>
     </div>
   );
