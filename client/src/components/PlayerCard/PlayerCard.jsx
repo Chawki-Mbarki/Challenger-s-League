@@ -2,28 +2,24 @@ import React from "react";
 import MiniIcon from "../MiniIcon/MiniIcon";
 import Styles from "./PlayerCard.module.css";
 
-const PlayerCard = ({ isFriend, onChallenge, onAdd, onBlock, onMessage, onUnfriend }) => {
+const PlayerCard = ({ text, isFriend, onChallenge, onAdd, onBlock, onMessage, onUnfriend }) => {
   return (
     <div className={Styles.card}>
-      {isFriend ? (
-        <>
-          <h3>Friend Mini Card</h3>
-          <div className={Styles.icons}>
-            <MiniIcon type="challenge" onClick={onChallenge} />
-            <MiniIcon type="message" onClick={onMessage} />
-            <MiniIcon type="unfriend" onClick={onUnfriend} />
-          </div>
-        </>
-      ) : (
-        <>
-          <h3>Player Mini Card</h3>
-          <div className={Styles.icons}>
-            <MiniIcon type="challenge" onClick={onChallenge} />
-            <MiniIcon type="add" onClick={onAdd} />
-            <MiniIcon type="block" onClick={onBlock} />
-          </div>
-        </>
-      )}
+      <h3>{text}</h3>
+      <div className={Styles.icons}>
+        <MiniIcon type="challenge" Clicked={onChallenge} />
+        {isFriend ? (
+          <>
+            <MiniIcon type="message" Clicked={onMessage} />
+            <MiniIcon type="unfriend" Clicked={onUnfriend} />
+          </>
+        ) : (
+          <>
+            <MiniIcon type="add" Clicked={onAdd} />
+            <MiniIcon type="block" Clicked={onBlock} />
+          </>
+        )}
+      </div>
     </div>
   );
 };

@@ -1,48 +1,59 @@
 .iconContainer {
-    width: 100px;
-    height: 100px;
-    border: 3px solid transparent;
-    border-radius: 20px;
-    overflow: hidden;
-    transition: border-color 0.5s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-  }
+  width: 100px;
+  scroll-snap-align: center;
+  flex: 0 0 100px;
+  height: 100px;
+  border: 5px solid transparent;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: border-color 0.5s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.iconContainer.selected {
+  animation: rgbBorder 3s ease infinite;
+  box-shadow: 0px 0px 20px rgb(177, 3, 124);
+}#c8aa6e
+
+.iconContainer.selected img {
+  animation: rgbBorder 3s ease infinite;
   
-  .iconContainer.selected {
-    animation: rgbBorder 3s ease infinite;
+}
+
+.iconContainer:hover {
+  box-shadow: 0 0 10px rgb(177, 3, 124);
+}
+
+.iconContainer img {
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
+.iconContainer:hover img {
+  transform: scale(1.4);
+}
+
+@keyframes rgbBorder {
+  0% {
+    border-color: rgb(255, 0, 0);
   }
-  
-  .iconContainer:hover {
-    box-shadow: 0 0 10px rgb(177, 3, 124);
+  25% {
+    border-color: rgb(255, 165, 0);
   }
-  
-  .iconContainer:hover img {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
+  50% {
+    border-color: rgb(0, 255, 0);
   }
-  
-  @keyframes rgbBorder {
-    0% {
-      border-color: rgb(255, 0, 0);
-    }
-    25% {
-      border-color: rgb(255, 165, 0);
-    }
-    50% {
-      border-color: rgb(0, 255, 0);
-    }
-    75% {
-      border-color: rgb(0, 0, 255);
-    }
-    100% {
-      border-color: rgb(75, 0, 130);
-    }
+  75% {
+    border-color: rgb(0, 0, 255);
   }
-  
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+  100% {
+    border-color: rgb(75, 0, 130);
   }
-  
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
