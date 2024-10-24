@@ -12,8 +12,7 @@ import {
   updateChallenge,
   getActiveChallenge,
 } from "../../api/challengeApi";
-import { PlayersList, FriendsList, ChallengesList } from "../../containers";
-import { ChallengeWidget } from "../../containers";
+import { PlayersList, FriendsList, ChallengesList, ChallengeWidget } from "../../containers";
 import Styles from "./MainBoard.module.css";
 import { Flag, Waiting } from "../../components";
 

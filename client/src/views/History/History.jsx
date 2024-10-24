@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { ChampionIcon } from "../../components";
-import { Navbar } from "../../Containers";
+import { Navbar } from "../../containers";
 import Styles from './History.module.css';
 
 const History = ({ userId }) => {
   const [matches, setMatches] = useState([]);
   const [error, setError] = useState(null);
-  const [userName, setUserName] = useState(''); // Assuming you fetch this from the backend as well
+  const [userName, setUserName] = useState('');
 
   useEffect(() => {
     const fetchMatches = async () => {
@@ -17,8 +17,6 @@ const History = ({ userId }) => {
         }
         const data = await response.json();
         setMatches(data);
-        // Optionally set username if provided in the response
-        // setUserName(data.userName); // Adjust based on your API response
       } catch (err) {
         setError(err.message);
       }
