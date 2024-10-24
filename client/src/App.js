@@ -2,8 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import { ProtectedRoute, PublicRoute } from "./components";
-import { TestArea, Home, Dashboard } from "./views";
-import {History} from "./views/History/History"; 
+import { TestArea, Home, Dashboard, History } from "./views";
 
 import "./app.css";
 
