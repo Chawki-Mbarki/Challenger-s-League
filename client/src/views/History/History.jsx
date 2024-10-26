@@ -1,75 +1,121 @@
-import React, { useEffect, useState } from 'react';
-import { ChampionIcon } from "../../components";
+import React, { useEffect, useState } from "react";
+import { ChampionIcon, Flag, Waiting } from "../../components";
 import { Navbar } from "../../containers";
-import Styles from './History.module.css';
+import Styles from "./History.module.css";
+import { getMatchHistory } from "../../api/matchApi";
+import { getUser } from "../../api/userApi";
+import axios from "axios";
 
-const History = ({ userId }) => {
+const History = () => {
   const [matches, setMatches] = useState([]);
+  const [user, setUser] = useState([]);
   const [error, setError] = useState(null);
-  const [userName, setUserName] = useState('');
+  const [version, setVersion] = useState(null);
+
+  const getLatestVersion = async () => {
+    const response = await axios.get("https://ddragon.leagueoflegends.com/api/versions.json");
+    setVersion(response.data[0]);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const userResponse = await getUser();
+        setUser(userResponse.user);
+        setVersion(getLatestVersion());
+      } catch (error) {
+        console.error("Error loading data:", error);
+        setError(error?.response?.data?.error || "Failed to load data.");
+      }
+    };
+
+    fetchData();
+  }, []);
+
 
   useEffect(() => {
     const fetchMatches = async () => {
       try {
-        const response = await fetch(`/api/matches/history/${userId}`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch matches');
-        }
-        const data = await response.json();
-        setMatches(data);
-      } catch (err) {
-        setError(err.message);
+        const matchHistoryResponse = await getMatchHistory();
+        setMatches(matchHistoryResponse.matches);
+      } catch (error) {
+        console.error("Error Loading Matches:", error);
+        setError(error.response?.data?.error || "Failed To Load Data.");
       }
     };
 
     fetchMatches();
-  }, [userId]);
+  }, [user]);
 
   return (
-    <div className={Styles.body}>
-      <Navbar className={Styles.navbar} />
-      <div className={`${Styles.container} ${Styles.historyContainer}`}>
-        <div className={Styles.titleContainer}>
-          <h1 className={Styles.pageTitle}>The {userName}'s History</h1>
-        </div>
-
-        {error && <div className={Styles.error}>{error}</div>}
-
-        <div className={Styles.historyTableContainer}>
-          <table className={Styles.historyTable}>
-            <thead>
-              <tr>
-                <th className={Styles.defaultIcon}></th>
-                <th>Opponent</th>
-                <th className={Styles.defaultIcon}></th>
-                <th>Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              {matches.map((match, index) => {
-                const isPlayer1 = match.player1 === userId;
-                const opponent = isPlayer1 ? match.player2 : match.player1;
-                const championIcon = isPlayer1 ? match.champion1DefaultIcon : match.champion2DefaultIcon;
-
-                // Determine the class based on match result
-                const rowClass = match.result === 'win' ? Styles.win : Styles.loss;
-
-                return (
-                  <tr key={index} className={rowClass}>
-                    <td className={Styles.defaultIcon}>
-                      <img src={championIcon} alt="Champion Icon" className={Styles.championIcon} />
-                    </td>
-                    <td>{opponent}</td>
-                    <td className={Styles.defaultIcon}>
-                      <img src={isPlayer1 ? match.champion2DefaultIcon : match.champion1DefaultIcon} alt="Opponent Champion Icon" className={Styles.championIcon} />
-                    </td>
-                    <td>{new Date(match.matchDate).toLocaleDateString()}</td>
+    <div>
+      <Navbar />
+      <div className={`${Styles.container} flex column`}>
+        {error ? (
+          <div style={{ marginTop: "25px" }}>
+            <Flag type={"error"} text={error} />
+          </div>
+        ) : (!user, !matches, !version) ? (
+          <div className="flex center">
+            <p style={{ color: "white", fontSize: "27px" }}>
+              Loading Your Data
+            </p>
+            <Waiting />
+          </div>
+        ) : (
+          <div className="container">
+            <div className={Styles.titleContainer}>
+              <h1 className={Styles.pageTitle}>
+                {user.username}'s Match History
+              </h1>
+            </div>
+            <div className={Styles.historyTableContainer}>
+              <table className={Styles.historyTable}>
+                <thead>
+                  <tr>
+                    <th className={Styles.defaultIcon}></th>
+                    <th>Opponent</th>
+                    <th className={Styles.defaultIcon}></th>
+                    <th>Date</th>
                   </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
+                </thead>
+                <tbody>
+                  {matches.map((match, index) => {
+                    console.log(match);
+                    const isChallenger = match.challenger._id === user._id;
+                    const rowClass = match.result === "won" ? Styles.won : Styles.lost;
+                    return (
+                      <tr key={index} className={rowClass}>
+                        <td className={Styles.defaultIcon}>
+                          <ChampionIcon
+                            imageURL={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${match.challengerChamp.image.full}`}
+                            isSelected={isChallenger}
+                          />
+                        </td>
+                        <td>{
+                          isChallenger? (
+                            match.opponent.username
+                          ) : (
+                            match.challenger.username
+                          )
+                          }</td>
+                        <td className={Styles.defaultIcon}>
+                          <ChampionIcon
+                            imageURL={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${match.opponentChamp.image.full}`}
+                            isSelected={!isChallenger}
+                          />
+                        </td>
+                        <td>
+                          {new Date(match.matchDate).toLocaleDateString()}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

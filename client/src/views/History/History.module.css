@@ -1,20 +1,13 @@
-
 .container {
-  height: 100vh; 
-  background-image: url('../../images/bgh.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.body {
-  height: 100vh; 
-  overflow: hidden; 
-}
-
-.container {
-  padding: 20px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  background-image: url("../../images/bgh.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position: fixed;
+  padding: 50px 25px;
 }
 
 .titleContainer {
@@ -72,11 +65,11 @@
 }
 
 
-.win {
+.won {
   background-color: rgba(0, 255, 0, 0.2); 
 }
 
-.loss {
+.lost {
   background-color: rgba(255, 0, 0, 0.2); 
 }
 
