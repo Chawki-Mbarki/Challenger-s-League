@@ -12,7 +12,7 @@ function App() {
       <Route path="/" element={<PublicRoute element={Home} />} />
       <Route path="/Dashboard" element={<ProtectedRoute element={Dashboard} />} />
       <Route path="/TestArea" element={<ProtectedRoute element={TestArea} />} />
-      <Route path="/History" element={<History />} />
+      <Route path="/History" element={<ProtectedRoute element={History} />} />
 
       {/* 
         //! put routes here
