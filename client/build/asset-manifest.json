@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ae114f35.css",
+    "main.js": "/static/js/main.b985c8a4.js",
+    "static/media/bgh.jpg": "/static/media/bgh.40f317996b7d028296ad.jpg",
+    "static/media/bg.jpeg": "/static/media/bg.f7d4e777bc7da67d5c41.jpeg",
+    "static/media/Xayah.jpg": "/static/media/Xayah.e004c0fb5d4f335914bc.jpg",
+    "static/media/challenge.svg": "/static/media/challenge.9e2dd6fd97c212257728aa26e322b61a.svg",
+    "static/media/add.svg": "/static/media/add.9d44787948a5a4230c75c98b1a8e04e1.svg",
+    "static/media/unfriend.svg": "/static/media/unfriend.9d8c41a87cc2f494e96783378281e3ce.svg",
+    "static/media/message.svg": "/static/media/message.a7d1518f73b2d7492e6d728753060494.svg",
+    "static/media/refuse.svg": "/static/media/refuse.58904565d4f759b4a185dc24fb2f1800.svg",
+    "static/media/block.svg": "/static/media/block.864fe0f9d0b76ce496a418b6af96b486.svg",
+    "index.html": "/index.html",
+    "static/media/accept.svg": "/static/media/accept.555c5c800171a1fc6fb5f6b97a494228.svg",
+    "main.ae114f35.css.map": "/static/css/main.ae114f35.css.map",
+    "main.b985c8a4.js.map": "/static/js/main.b985c8a4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ae114f35.css",
+    "static/js/main.b985c8a4.js"
+  ]
+}
