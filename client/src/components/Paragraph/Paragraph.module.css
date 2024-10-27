@@ -1,0 +1,12 @@
+.paragraphContainer {
+  max-width: 550px;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: rgba(142, 4, 50, 0.137);
+  color: #ffffff;
+}
+
+.paragraph {
+  overflow-wrap: break-word;
+}

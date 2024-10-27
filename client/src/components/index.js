@@ -1,1 +1,14 @@
 export { default as ProtectedRoute } from './ProtectedRoute/ProtectedRoute'
+export { default as PublicRoute } from './PublicRoute/PublicRoute'
+export { default as Btn } from './Btn/Btn'
+export { default as Paragraph } from './Paragraph/Paragraph'
+export { default as Input } from './Input/Input'
+export { default as Link } from './Link/Link'
+export { default as ProgressCircle } from './ProgressCircle/ProgressCircle'
+export { default as Flag } from './Flag/Flag'
+export { default as Waiting } from './Waiting/Waiting'
+export { default as ChampionIcon } from "./ChampionIcon/ChampionIcon";
+export { default as MiniIcon } from "./MiniIcon/MiniIcon";
+export { default as PlayerCard } from "./PlayerCard/PlayerCard";
+export { default as MatchCard } from "./MatchCard/MatchCard";
+export { default as Champions } from "./Champions/Champions";
