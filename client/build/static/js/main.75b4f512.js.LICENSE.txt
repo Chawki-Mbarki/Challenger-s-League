@@ -85,3 +85,5 @@ and limitations under the License.
  *
  * @license MIT
  */
+
+//! Use this on your local machine: the server and client cannot run on the same port
