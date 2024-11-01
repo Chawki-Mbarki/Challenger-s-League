@@ -36,9 +36,10 @@ const LoginForm = () => {
     } catch (error) {
       setError(
         error.response?.data?.error ||
-          error.message ||
+          error.details ||
           "Login failed. Please try again."
       );
+      console.error(`Error accured while logging in: ${error.response?.data?.details}`)
     }
   };
 

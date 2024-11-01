@@ -20,7 +20,9 @@
   text-align: center;
   color: rgb(159, 159, 159);
   border: 1px solid black;
-  max-height: fit-content;
+  font-size: 20px;
+  height: calc(100% - 77px);
+  max-height: 82px;
 }
 
 .Column ul {

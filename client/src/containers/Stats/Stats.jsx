@@ -77,7 +77,7 @@ const Stats = ({ user }) => {
           <h3>
             Greetings, Summoner <span>{user.username}</span>
           </h3>
-          <h4>Welcome to the Challenger's League</h4>
+          <h4>Welcome to Challenger's League</h4>
         </div>
         <ProgressCircle progress={xp} text="XP" progressText={`${xp}`} />
       </div>
