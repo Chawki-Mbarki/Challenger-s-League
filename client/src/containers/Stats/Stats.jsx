@@ -6,6 +6,7 @@ import Styles from "./Stats.module.css";
 const Stats = ({ user }) => {
   const [winrate, setWinrate] = useState(0);
   const [level, setLevel] = useState(1);
+  const [levelProgress, setLevelProgress] = useState(1);
   const [xp, setXp] = useState(0);
   const [error, setError] = useState("");
 
@@ -17,6 +18,7 @@ const Stats = ({ user }) => {
 
         let totalXp = 0;
         let totalLevel = 0;
+        let totalLevelProgress = 0;
 
         matchHistoryResponse.matches.forEach((match) => {
           if (match.result === "won") {
@@ -32,6 +34,7 @@ const Stats = ({ user }) => {
 
         setXp(totalXp);
         setLevel(totalLevel);
+        setLevelProgress(totalLevel + totalXp/100);
       } catch (error) {
         console.error("Error loading data:", error);
         setError(error.response?.data?.error || "Failed to load data.");
@@ -69,7 +72,7 @@ const Stats = ({ user }) => {
         style={{ gap: "2vw" }}
       >
         <ProgressCircle
-          progress={level}
+          progress={levelProgress}
           text="Level"
           progressText={`${level}`}
         />
