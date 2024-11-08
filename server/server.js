@@ -5,6 +5,7 @@ require("dotenv").config();
 require("./config/mongoose.config");
 const userRoutes = require("./routes/user.routes");
 const challengeRoutes = require("./routes/challenge.routes");
+const messageRoutes = require("./routes/message.routes");
 const matchRoutes = require("./routes/match.routes");
 const riotRoutes = require("./routes/riot.routes");
 
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 userRoutes(app);
 matchRoutes(app);
+messageRoutes(app);
 challengeRoutes(app);
 riotRoutes(app);
 
