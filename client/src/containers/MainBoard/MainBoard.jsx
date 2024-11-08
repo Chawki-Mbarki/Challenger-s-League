@@ -12,16 +12,28 @@ import {
   updateChallenge,
   getActiveChallenge,
 } from "../../api/challengeApi";
-import { PlayersList, FriendsList, ChallengesList, ChallengeWidget } from "../../containers";
+import {
+  getConversation
+} from "../../api/messageApi";
+import {
+  PlayersList,
+  FriendsList,
+  ChallengesList,
+  ChallengeWidget,
+  MessagingWidget,
+} from "../../containers";
 import Styles from "./MainBoard.module.css";
 import { Flag, Waiting } from "../../components";
 
 const MainBoard = ({ user }) => {
   const [players, setPlayers] = useState(null);
   const [friends, setFriends] = useState(null);
+  const [friend, setFriend] = useState(null);
+  const [messages, setMessages] = useState(null);
   const [challenges, setChallenges] = useState(null);
   const [error, setError] = useState("");
   const [widgetVisible, setWidgetVisible] = useState(false);
+  const [messaginWidgetVisible, setMessaginWidgetVisible] = useState(false);
   const [challengeDetails, setChallengeDetails] = useState(null);
   const [currentState, setCurrentState] = useState("start");
   const [myRole, setMyRole] = useState(null);
@@ -145,6 +157,17 @@ const MainBoard = ({ user }) => {
     setWidgetVisible(true);
   };
 
+  const handleConversation = (user) => {
+    console.log(user)
+    setFriend(user)
+    setMessages(getConversation(user))
+    setMessaginWidgetVisible(true);
+  };
+
+  const toggleMessagingWidgetVisibility = () => {
+    setMessaginWidgetVisible(!messaginWidgetVisible);
+  };
+
   const toggleWidgetVisibility = () => {
     setWidgetVisible(!widgetVisible);
   };
@@ -194,6 +217,7 @@ const MainBoard = ({ user }) => {
             friends={friends}
             onChallenge={handleChallenge}
             onUnfriend={handleUnfriend}
+            onMessage={handleConversation}
           />
           <ChallengesList
             challenges={challenges}
@@ -208,6 +232,13 @@ const MainBoard = ({ user }) => {
               currentState={currentState}
               setCurrentState={setCurrentState}
               myRole={myRole}
+            />
+          )}
+          {friend && messaginWidgetVisible && (
+            <MessagingWidget
+              onClose={toggleMessagingWidgetVisibility}
+              friend={friend}
+              messages={messages}
             />
           )}
         </>
