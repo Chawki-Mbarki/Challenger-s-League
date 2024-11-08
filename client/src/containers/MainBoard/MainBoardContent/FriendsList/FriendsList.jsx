@@ -5,7 +5,7 @@ import Styles from "./FriendsList.module.css";
 const FriendList = ({ friends, onChallenge, onMessage, onUnfriend }) => {
   return (
     <div className={Styles.Column}>
-      <h3>Friend</h3>
+      <h3>Friends</h3>
       { !friends ? (
         <div className="flex center">
           <p style={{ color: "white", fontSize: "27px" }}>Loading Friends</p>
@@ -21,7 +21,7 @@ const FriendList = ({ friends, onChallenge, onMessage, onUnfriend }) => {
                 text={friend.username}
                 isFriend={true}
                 onChallenge={() => onChallenge(friend)}
-                onMessage={() => onMessage(friend._id)}
+                onMessage={() => onMessage(friend)}
                 onUnfriend={() => onUnfriend(friend._id)}
               />
             </li>

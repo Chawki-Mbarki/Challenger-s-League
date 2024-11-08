@@ -66,10 +66,10 @@ const LoginForm = () => {
           type="button"
           STYL="primary"
           text="Sign In"
-          onClick={handleLogin}
+          btnClick={handleLogin}
         />
-        {error && <Flag type="error" text={error} />}
       </form>
+      {error && <div className={Styles.error}><Flag type="error" text={error} /></div>}
     </div>
   );
 };

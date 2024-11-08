@@ -45,13 +45,13 @@ const Home = () => {
             type="button"
             STYL={formType === "login" ? "secondary" : "primary"}
             text="Sign In"
-            onClick={() => handleButtonClick("login")}
+            btnClick={() => handleButtonClick("login")}
           />
           <Btn
             type="button"
             STYL={formType === "register" ? "secondary" : "primary"}
             text="Sign Up"
-            onClick={() => handleButtonClick("register")}
+            btnClick={() => handleButtonClick("register")}
           />
         </div>
         <Paragraph text="Challenger League lets you challenge players in random or draft pick games, connect with new friends, and track your match history, win rate, and champion performance." />

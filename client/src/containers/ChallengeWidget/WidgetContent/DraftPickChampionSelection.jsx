@@ -122,7 +122,7 @@ const DraftPickChampionSelection = ({
                 <Btn
                   text={"Pick"}
                   STYL="pick"
-                  onClick={() => handlePick(challenge, myRole)}
+                  btnClick={() => handlePick(challenge, myRole)}
                 />
               )
             ) : myRole === "opponent" ? (
@@ -132,7 +132,7 @@ const DraftPickChampionSelection = ({
                 <Btn
                   text={"Pick"}
                   STYL="pick"
-                  onClick={() => handlePick(challenge, myRole)}
+                  btnClick={() => handlePick(challenge, myRole)}
                 />
               )
             ) : null}

@@ -203,7 +203,7 @@ const ChallengeWidget = ({
             handleResult={handleResult}
           />
         )}
-        <Btn type={"button"} STYL="white" text={"Close"} onClick={onClose} />
+        <Btn type={"button"} STYL="white" text={"Close"} btnClick={onClose} />
       </div>
       <div className={Styles.error}>
         {error && <Flag type="error" text={error} />}

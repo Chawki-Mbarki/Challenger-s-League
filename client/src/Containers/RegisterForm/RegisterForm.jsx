@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Input, Btn, Flag } from "../../components";
-import styles from "./RegisterForm.module.css";
+import Styles from "./RegisterForm.module.css";
 import { registerUser } from "../../api/userApi";
 import { useNavigate } from "react-router-dom";
 
@@ -73,7 +73,7 @@ const RegistrationForm = () => {
   };  
 
   return (
-    <div className={styles.formContainer}>
+    <div className={Styles.formContainer}>
       <form action="#" className="flex column center" style={{ gap: 12 }}>
         <Input
           type="text"
@@ -111,9 +111,9 @@ const RegistrationForm = () => {
           type="button"
           STYL="primary"
           text="Sign Up"
-          onClick={handleRegister}
+          btnClick={handleRegister}
         />
-        {error && <Flag type="error" text={error} />}
+        {error && <div className={Styles.error}><Flag type="error" text={error} /></div>}
       </form>
     </div>
   );

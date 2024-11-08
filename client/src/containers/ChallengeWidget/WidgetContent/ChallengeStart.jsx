@@ -28,7 +28,7 @@ const ChallengeStart = ({ onGameModeChange, onStartBattle }) => {
           <label>Draft Pick</label>
         </div>
       </div>
-      <Btn text={"Start the Battle"} STYL="secondary" onClick={onStartBattle} />
+      <Btn text={"Start the Battle"} STYL="secondary" btnClick={onStartBattle} />
     </div>
   );
 };

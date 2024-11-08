@@ -116,8 +116,8 @@ const Result = ({
       </div>
       <div>
         <p>Did you win the game?</p>
-        <Btn onClick={() => handleResult("won", challenge, myRole, navigate)} text={"Yes"} STYL={"yes"} />
-        <Btn onClick={() => handleResult("lost", challenge, myRole, navigate)} text={"No"} STYL={"no"} />
+        <Btn btnClick={() => handleResult("won", challenge, myRole, navigate)} text={"Yes"} STYL={"yes"} />
+        <Btn btnClick={() => handleResult("lost", challenge, myRole, navigate)} text={"No"} STYL={"no"} />
       </div>
     </div>
   );

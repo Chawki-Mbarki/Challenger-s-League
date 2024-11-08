@@ -9,10 +9,12 @@
 }
 
 .error {
-  color: rgb(255, 0, 85);
-  font-size: 20px;
-  margin-top: 10px;
-  padding: 8px;
-  background-color: white;
-  border-radius: 20px;
+  position: absolute;
+  top: calc(50% + 258px/2 + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
 }
+

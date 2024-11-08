@@ -7,3 +7,13 @@
   width: 50vw;
   height: 100vh;
 }
+
+.error {
+  position: absolute;
+  top: calc(50% + 446px/2 + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+}
