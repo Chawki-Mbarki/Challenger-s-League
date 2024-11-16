@@ -28,7 +28,7 @@ import { Flag, Waiting } from "../../components";
 const MainBoard = ({ user }) => {
   const [players, setPlayers] = useState(null);
   const [friends, setFriends] = useState(null);
-  const [friend, setFriend] = useState(null);
+  const [friend, setFriend] = useState(user);
   const [messages, setMessages] = useState(null);
   const [challenges, setChallenges] = useState(null);
   const [error, setError] = useState("");

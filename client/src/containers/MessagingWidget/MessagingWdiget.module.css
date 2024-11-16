@@ -27,22 +27,58 @@
   text-align: center;
 }
 
-.info h2 {
-  display: grid;
-  grid-template-columns: 5fr 1fr 5fr;
-  align-items: center;
-  color: white;
-  margin-bottom: 0;
-  border-bottom: none;
-}
-
-.info h2 span {
-  font-size: 33px;
-}
-
-.info > p {
+.info > * {
   font-size: 25px;
-  height: 38px;
-  font-weight: lighter;
+}
+
+.conversation {
+  border: 1px solid black;
+  background-color: #f5e8d775;
+  border-radius: 10px; 
+  padding: 15px;
+}
+
+.messages {
+  border-radius: 10px; 
+  min-height: 300px;
+  height: 40vh;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.messageContainer {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.message {
   color: white;
+  padding: 10px;
+  width: fit-content;
+  margin: 5px 0;
+  border: 1px solid black;
+  max-width: 80%;
+  text-align: left;
+  text-overflow: clip;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.recieved {
+  background-color: #4a0c84;
+  border-radius: 0 10px 10px 10px;
+}
+
+.sent {
+  background-color: #a30b52;
+  border-radius: 10px 0 10px 10px;
+  margin-left: auto;
+}
+
+.inputContainer {
+  margin: 15px 0;
+
 }
