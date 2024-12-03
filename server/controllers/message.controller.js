@@ -1,5 +1,6 @@
 const Message = require("../models/message.model");
 const User = require("../models/user.model");
+const { io } = require("../server");
 
 module.exports.sendMessage = async (req, res) => {
   const { receiverId, content } = req.body;
